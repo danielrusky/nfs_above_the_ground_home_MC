@@ -1,0 +1,19 @@
+<!--<div class="col-sm-4 offset-md-1 py-4">-->
+<!--    <h4 class="text-white">Меню</h4>-->
+<!--    <ul class="list-unstyled">-->
+<!--        <li><a href="{% url 'main:index' %}" class="text-white">Главная</a></li>-->
+<!--        <li><a href="{% url 'materials:list' %}" class="text-white">Материалы</a></li>-->
+<!--        <li><a href="{% url 'main:contact' %}" class="text-white">Контакты</a></li>-->
+<!--    </ul>-->
+<!--</div>-->
+
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+    <h5 class="my-0 mr-md-auto font-weight-normal">Даниэль Русский</h5>
+    <nav class="ms-5">
+        <a class="p-2 btn btn-outline-primary" href="{% url 'home' %}">Каталог</a>
+        <a class="p-2 btn btn-outline-primary" href="{% url 'contacts' %}">Контакты</a>
+        <a class="p-2 btn btn-success" href="{% url 'marka_create' %}">Поиск марки</a>
+        <a class="p-2 btn btn-primary" href="{% url 'autocar_create' %}">Поиск автомобиля</a>
+        <a class="p-2 btn btn-outline-dark" href="{% url 'product' %}">Материалы</a>
+    </nav>
+</div>

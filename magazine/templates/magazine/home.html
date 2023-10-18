@@ -1,0 +1,17 @@
+{% extends 'magazine/base.html' %}
+{% block content %}
+<div class="row">
+    {% for object in object_list %}
+    <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+            <img src="/media/{{ object.image }}" class="card-img-top">
+            <div class="card-body">
+                <p class="card-text"><b>{{ object }}</b></p>
+                <h5 class="card-title">{{ object.name }}</h5>
+                <a href="{% url 'product' object.pk %}" class="btn btn-primary form-control">Подробнее</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
