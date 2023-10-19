@@ -7,6 +7,12 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView, DetailView, CreateView, ListView, UpdateView, DeleteView
 
 
+class AutocarCreateView(CreateView):
+    model = Autocar
+    fields = ('name', 'description', 'price', 'image', 'marka')
+    success_url = reverse_lazy('home')
+
+
 class AutocarListView(ListView):
     model = Autocar
     template_name = 'magazine/home.html'
@@ -30,10 +36,7 @@ def contacts(request):
 
 
 class AutocarDetailView(DetailView):
-    model = Marka
-    fields = ('name', 'description')
-    template_name = 'magazine/marka_create.html'
-    success_url = reverse_lazy('home')
+    model = Autocar
 
 
 class AutocarUpdateView(UpdateView):
@@ -63,13 +66,14 @@ class MarkaDeleteView(DeleteView):
 #     context = {
 #         'object': autocar_item
 #     }
-#     return render(request, 'magazine/product.html', {'product': Autocar.objects.get(pk=pk)})
+#     return render(request, 'magazine/autocar_detail.html', {'product': Autocar.objects.get(pk=pk)})
+
+
 #
 
 class MarkaCreateView(CreateView):
     model = Marka
     fields = ('name', 'description')
-    template_name = 'magazine/marka_create.html'
     success_url = reverse_lazy('home')
 
 
@@ -79,13 +83,8 @@ class MarkaCreateView(CreateView):
 #         cat_desc = request.POST.get('marka_desc')
 #         Marka.objects.create(name=marka_name, description=marka_desc)
 #         return redirect('home')
-#     return render(request, 'magazine/marka_create.html')
+#     return render(request, 'magazine/marka_form.html')
 
-class AutocarCreateView(CreateView):
-    model = Autocar
-    fields = ('name', 'description', 'price', 'image', 'category')
-    template_name = 'magazine/product.html'
-    success_url = reverse_lazy('home')
 
 # def autocar_create(request):
 #     if request.method == 'POST':
@@ -102,13 +101,13 @@ class AutocarCreateView(CreateView):
 #               f"Цена: {price}\n"
 #               f"Фото: {autocar_image}\n"
 #               f"Категория: {autocar_category}")
-#     return render(request, 'magazine/autocar_create.html', {'autocar_create': Marka.objects.all()})
+#     return render(request, 'magazine/autocar_form.html', {'autocar_create': Marka.objects.all()})
 
 def toggle_active(request, slug):
-    blog = get_object_or_404(magazine, slug=slug)
-    if blog.to_publish:
-        blog.to_publish = False
+    materials = get_object_or_404(magazine, slug=slug)
+    if materials.to_publish:
+        materials.to_publish = False
     else:
-        blog.to_publish = True
-    blog.save()
-    return redirect('blog_detail', slug=blog.slug)
+        materials.to_publish = True
+    materials.save()
+    return redirect('blog_detail', slug=materials.slug)

@@ -13,7 +13,7 @@ class MaterialCreateView(CreateView):
     def form_valid(self, form):
         if form.is_valid():
             new_mat = form.save()
-            new_mat.slugify(new_mat.title)
+            new_mat.slug = slugify(new_mat.title)
             new_mat.save()
             return super().form_valid(form)
 
@@ -50,6 +50,7 @@ class MaterialDeleteView(DeleteView):
 
 class MaterialDetailView(DetailView):
     model = Material
+    success_url = reverse_lazy('product')
 
     def get_object(self, queryset=None):
         self.object = super().get_object(queryset)

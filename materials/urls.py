@@ -2,7 +2,7 @@ from django.urls import path
 
 from materials.apps import MaterialsConfig
 from materials.views import (MaterialCreateView, MaterialListView, MaterialDetailView, MaterialUpdateView,
-                             MaterialDeleteView)
+                             MaterialDeleteView, )
 
 app_name = MaterialsConfig.name
 

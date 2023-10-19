@@ -11,7 +11,7 @@ urlpatterns = [
     path('product/<int:pk>', views.AutocarDetailView.as_view(), name='product'),
     path('autocar_create/', views.AutocarCreateView.as_view(), name='autocar_create'),
     path('marka_create/', views.MarkaCreateView.as_view(), name='marka_create'),
-    path('autocar_update/', views.AutocarUpdateView.as_view(), name='marka_create'),
+    path('autocar_update/', views.AutocarUpdateView.as_view(), name='marka_update'),
 ]
 
 # urlpatterns = [

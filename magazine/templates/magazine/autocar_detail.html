@@ -3,12 +3,12 @@
 <div class="row text-center" align="center">
     <div class="col-sm-3 mb-6 mb-sm-0">
         <div class="card" style="width: 28rem;">
-            <img src="/media/{{ product.image }}" class="card-img-top">
+            <img src="/media/{{ object.image }}" class="card-img-top">
             <div class="card-body" align="center">
-                <h5 class="card-title">{{ product.name }}</h5>
-                <p class="card-text">{{ product.description }}</p>
-                <p class="card-text">Марка: {{ product.marka }}</p>
-                <p class="card-text">Цена: {{ product.price }} руб.</p>
+                <h5 class="card-title">{{ object.name }}</h5>
+                <p class="card-text">{{ object.description }}</p>
+                <p class="card-text">Марка: {{ object.marka }}</p>
+                <p class="card-text">Цена: {{ object.price }} руб.</p>
                 <a href="{% url 'home' %}" class="btn btn-primary">К списку товаров</a>
             </div>
         </div>

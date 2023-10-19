@@ -21,7 +21,7 @@ class Autocar(models.Model):
     image = models.ImageField(verbose_name='Изображение', upload_to='img/', **NULLABLE)
     marka = models.ForeignKey(Marka, verbose_name='Категория', on_delete=models.CASCADE)
     price = models.IntegerField(verbose_name='Цена', **NULLABLE)
-    data_created = models.DateTimeField(verbose_name='Дата последнего изменения')
+    data_created = models.DateTimeField(verbose_name='Дата последнего изменения', auto_now_add=True)
 
     def __str__(self):
         return f"{self.marka}"
